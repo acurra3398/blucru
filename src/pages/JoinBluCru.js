@@ -78,27 +78,25 @@ export default function JoinBluCru() {
     }
 
     try {
-      // Google Sheets Form Submission
-      const googleFormId = '1FAIpQLSeesQr46JmGEmqFLQP50pXXECI-Oh6W3lpb12S_MjQxwumE6A';
-      const formAction = `https://docs.google.com/forms/d/e/${googleFormId}/formResponse`;
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbysqtIuEzyiuo_DUQq9qQyGxnRXnmFmvUVsQEYuFMK4h3Nvi3ZqLJ7DejJNR7obAIgw/exec';
 
       const data = new FormData();
-      data.append('entry.662201397', formData.firstName);
-      data.append('entry.2055299999', formData.lastName);
-      data.append('entry.1617300132', formData.email);
-      data.append('entry.2080693394', formData.discord);
-      data.append('entry.759286050', formData.grade);
-      data.append('entry.903130515', formData.school);
-      data.append('entry.979969182', formData.areasOfInterest.join(', '));
-      data.append('entry.1296244324', formData.introduction);
-      data.append('entry.868246007', formData.personalGoals);
-      data.append('entry.1958490873', formData.stemPassion);
-      data.append('entry.1018310324', formData.ftcExperience);
-      data.append('entry.1275999522', formData.teamExperience);
-      data.append('entry.826299963', formData.commitment ? 'Yes I agree' : '');
-      data.append('entry.1115899228', formData.additionalInfo);
+      data.append('firstName', formData.firstName);
+      data.append('lastName', formData.lastName);
+      data.append('email', formData.email);
+      data.append('discord', formData.discord);
+      data.append('grade', formData.grade);
+      data.append('school', formData.school);
+      data.append('areasOfInterest', formData.areasOfInterest.join(', '));
+      data.append('introduction', formData.introduction);
+      data.append('personalGoals', formData.personalGoals);
+      data.append('stemPassion', formData.stemPassion);
+      data.append('ftcExperience', formData.ftcExperience);
+      data.append('teamExperience', formData.teamExperience);
+      data.append('commitment', formData.commitment ? 'Yes I agree' : '');
+      data.append('additionalInfo', formData.additionalInfo);
 
-      await fetch(formAction, {
+      await fetch(scriptURL, {
         method: 'POST',
         body: data,
         mode: 'no-cors'
