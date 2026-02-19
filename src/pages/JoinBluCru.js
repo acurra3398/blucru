@@ -24,30 +24,93 @@ export default function JoinBluCru() {
     firstName: '',
     lastName: '',
     email: '',
-    phone: '',
+    discord: '',
     grade: '',
     school: '',
-    team: '',
-    experience: '',
-    why: '',
+    areasOfInterest: [],
+    introduction: '',
+    personalGoals: '',
+    stemPassion: '',
+    ftcExperience: '',
+    teamExperience: '',
+    commitment: false,
+    additionalInfo: '',
   });
   const [submitted, setSubmitted] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
+  const [submitError, setSubmitError] = useState('');
+
+  const interestOptions = ['Software', 'Mechanical', 'Fundraising', 'Judging', 'Outreach', 'Other'];
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value, type, checked } = e.target;
+    if (type === 'checkbox' && name === 'areasOfInterest') {
+      setFormData({
+        ...formData,
+        areasOfInterest: checked
+          ? [...formData.areasOfInterest, value]
+          : formData.areasOfInterest.filter(item => item !== value)
+      });
+    } else if (type === 'checkbox') {
+      setFormData({ ...formData, [name]: checked });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`[BluCru Join Application] ${formData.firstName} ${formData.lastName}`);
-    const body = encodeURIComponent(
-      `Name: ${formData.firstName} ${formData.lastName}\nEmail: ${formData.email}\nPhone: ${formData.phone || 'N/A'}\nGrade: ${formData.grade}\nSchool: ${formData.school}\nTeam Preference: ${formData.team}\n\nRelevant Experience:\n${formData.experience || 'N/A'}\n\nWhy They Want to Join:\n${formData.why}`
-    );
-    window.location.href = `mailto:blucru6417@gmail.com?subject=${subject}&body=${body}`;
-    setSubmitted(true);
-    setShowConfetti(true);
-    setTimeout(() => setShowConfetti(false), 3500);
+    setSubmitError('');
+
+    if (!formData.commitment) {
+      setSubmitError('You must agree to commit the time and effort.');
+      return;
+    }
+
+    if (formData.areasOfInterest.length === 0) {
+      setSubmitError('Please select at least one area of interest.');
+      return;
+    }
+
+    if (formData.areasOfInterest.length > 3) {
+      setSubmitError('Please limit areas of interest to 3 areas.');
+      return;
+    }
+
+    try {
+      // Google Sheets Form Submission
+      // Replace with your actual Google Form action URL
+      const googleFormId = 'YOUR_GOOGLE_FORM_ID'; // You'll need to set this
+      const formAction = `https://docs.google.com/forms/d/e/${googleFormId}/formResponse`;
+
+      const data = new FormData();
+      data.append('entry.123456789', formData.firstName); // Replace with actual field IDs
+      data.append('entry.987654321', formData.lastName);
+      data.append('entry.456789123', formData.email);
+      data.append('entry.789123456', formData.discord);
+      data.append('entry.321456789', formData.grade);
+      data.append('entry.654789123', formData.school);
+      data.append('entry.111222333', formData.areasOfInterest.join(', '));
+      data.append('entry.444555666', formData.introduction);
+      data.append('entry.777888999', formData.personalGoals);
+      data.append('entry.222333444', formData.stemPassion);
+      data.append('entry.555666777', formData.ftcExperience);
+      data.append('entry.888999111', formData.teamExperience);
+      data.append('entry.333444555', formData.additionalInfo);
+
+      await fetch(formAction, {
+        method: 'POST',
+        body: data,
+        mode: 'no-cors'
+      });
+
+      setSubmitted(true);
+      setShowConfetti(true);
+      setTimeout(() => setShowConfetti(false), 3500);
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitError('There was an error submitting your form. Please try again.');
+    }
   };
 
   if (submitted) {
@@ -102,6 +165,12 @@ export default function JoinBluCru() {
 
       <section className="join-section" style={{ paddingTop: '3rem' }}>
         <form className="join-form" onSubmit={handleSubmit}>
+          {submitError && (
+            <div style={{ background: '#fee', border: '1px solid #fcc', color: '#c33', padding: '1rem', borderRadius: '6px', marginBottom: '1.5rem' }}>
+              {submitError}
+            </div>
+          )}
+
           <div className="form-row">
             <div className="form-group">
               <label htmlFor="firstName">First Name *</label>
@@ -131,7 +200,7 @@ export default function JoinBluCru() {
 
           <div className="form-row">
             <div className="form-group">
-              <label htmlFor="email">Email Address *</label>
+              <label htmlFor="email">Email *</label>
               <input
                 type="email"
                 id="email"
@@ -143,21 +212,22 @@ export default function JoinBluCru() {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="phone">Phone Number</label>
+              <label htmlFor="discord">Discord *</label>
               <input
-                type="tel"
-                id="phone"
-                name="phone"
-                value={formData.phone}
+                type="text"
+                id="discord"
+                name="discord"
+                value={formData.discord}
                 onChange={handleChange}
-                placeholder="(123) 456-7890"
+                required
+                placeholder="Your Discord username"
               />
             </div>
           </div>
 
           <div className="form-row">
             <div className="form-group">
-              <label htmlFor="grade">Grade Level *</label>
+              <label htmlFor="grade">Grade (2026-2027) *</label>
               <select
                 id="grade"
                 name="grade"
@@ -175,7 +245,7 @@ export default function JoinBluCru() {
               </select>
             </div>
             <div className="form-group">
-              <label htmlFor="school">School *</label>
+              <label htmlFor="school">School (2026-2027) *</label>
               <input
                 type="text"
                 id="school"
@@ -189,41 +259,114 @@ export default function JoinBluCru() {
           </div>
 
           <div className="form-group">
-            <label htmlFor="team">Which team would you like to join? *</label>
-            <select
-              id="team"
-              name="team"
-              value={formData.team}
-              onChange={handleChange}
-              required
-            >
-              <option value="">Select a team</option>
-              <option value="blucru">Blu Cru (FTC #6417) - Varsity</option>
-              <option value="greengang">Green Gang (FTC #24158) - JV</option>
-              <option value="either">Either / No preference</option>
-            </select>
+            <label>Areas of Interest (limit to 3) *</label>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '0.75rem', marginTop: '0.5rem' }}>
+              {interestOptions.map(option => (
+                <label key={option} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}>
+                  <input
+                    type="checkbox"
+                    name="areasOfInterest"
+                    value={option}
+                    checked={formData.areasOfInterest.includes(option)}
+                    onChange={handleChange}
+                    disabled={formData.areasOfInterest.length >= 3 && !formData.areasOfInterest.includes(option)}
+                  />
+                  {option}
+                </label>
+              ))}
+            </div>
           </div>
 
           <div className="form-group">
-            <label htmlFor="experience">Relevant Experience</label>
+            <label htmlFor="introduction">Please introduce yourself to our team. What are you looking for in a team? *</label>
             <textarea
-              id="experience"
-              name="experience"
-              value={formData.experience}
+              id="introduction"
+              name="introduction"
+              value={formData.introduction}
               onChange={handleChange}
-              placeholder="Tell us about any robotics, programming, engineering, or other relevant experience you have..."
+              required
+              placeholder="Tell us about yourself and what you're looking for..."
+              rows="4"
             />
           </div>
 
           <div className="form-group">
-            <label htmlFor="why">Why do you want to join? *</label>
+            <label htmlFor="personalGoals">What are your personal goals for joining the team? *</label>
             <textarea
-              id="why"
-              name="why"
-              value={formData.why}
+              id="personalGoals"
+              name="personalGoals"
+              value={formData.personalGoals}
               onChange={handleChange}
               required
-              placeholder="What excites you about robotics? What do you hope to learn or contribute?"
+              placeholder="Share your goals..."
+              rows="4"
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="stemPassion">Why are you passionate about STEM? *</label>
+            <textarea
+              id="stemPassion"
+              name="stemPassion"
+              value={formData.stemPassion}
+              onChange={handleChange}
+              required
+              placeholder="Tell us about your STEM passion..."
+              rows="4"
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="ftcExperience">Do you have experience in FTC/Robotics? If so, please describe thoroughly. *</label>
+            <textarea
+              id="ftcExperience"
+              name="ftcExperience"
+              value={formData.ftcExperience}
+              onChange={handleChange}
+              required
+              placeholder="Describe your FTC/Robotics experience..."
+              rows="4"
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="teamExperience">Have you had any other experience working on a team? What did you do? Please describe thoroughly. *</label>
+            <textarea
+              id="teamExperience"
+              name="teamExperience"
+              value={formData.teamExperience}
+              onChange={handleChange}
+              required
+              placeholder="Describe your team experience..."
+              rows="4"
+            />
+          </div>
+
+          <div className="form-group">
+            <label style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', cursor: 'pointer' }}>
+              <input
+                type="checkbox"
+                name="commitment"
+                checked={formData.commitment}
+                onChange={handleChange}
+                required
+                style={{ marginTop: '0.25rem', flexShrink: 0 }}
+              />
+              <span>
+                I agree to commit the time and effort it takes for the team to succeed. I should expect to commit at least 10 hours per week during team meetings and outside of team meetings. <em>*Will increase as competition season draws near</em> *
+              </span>
+            </label>
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="additionalInfo">Is there anything else you would like to tell us? (questions, extra info)</label>
+            <textarea
+              id="additionalInfo"
+              name="additionalInfo"
+              value={formData.additionalInfo}
+              onChange={handleChange}
+              placeholder="Any additional information..."
+              rows="3"
             />
           </div>
 
