@@ -83,20 +83,20 @@ export default function JoinBluCru() {
       const formAction = `https://docs.google.com/forms/d/e/${googleFormId}/formResponse`;
 
       const data = new FormData();
-      data.append('entry.1995494324', formData.firstName);
-      data.append('entry.801323074', formData.lastName);
-      data.append('entry.1865593471', formData.email);
-      data.append('entry.490977060', formData.discord);
-      data.append('entry.2028759807', formData.grade);
-      data.append('entry.1498590108', formData.school);
-      data.append('entry.719590298', formData.areasOfInterest.join(', '));
-      data.append('entry.950127154', formData.introduction);
-      data.append('entry.94849546', formData.personalGoals);
-      data.append('entry.419260352', formData.stemPassion);
-      data.append('entry.1669949844', formData.ftcExperience);
-      data.append('entry.335470016', formData.teamExperience);
-      data.append('entry.1173221217', formData.commitment ? 'Yes I agree' : '');
-      data.append('entry.1162194342', formData.additionalInfo);
+      data.append('entry.662201397', formData.firstName);
+      data.append('entry.2055299999', formData.lastName);
+      data.append('entry.1617300132', formData.email);
+      data.append('entry.2080693394', formData.discord);
+      data.append('entry.759286050', formData.grade);
+      data.append('entry.903130515', formData.school);
+      data.append('entry.979969182', formData.areasOfInterest.join(', '));
+      data.append('entry.1296244324', formData.introduction);
+      data.append('entry.868246007', formData.personalGoals);
+      data.append('entry.1958490873', formData.stemPassion);
+      data.append('entry.1018310324', formData.ftcExperience);
+      data.append('entry.1275999522', formData.teamExperience);
+      data.append('entry.826299963', formData.commitment ? 'Yes I agree' : '');
+      data.append('entry.1115899228', formData.additionalInfo);
 
       await fetch(formAction, {
         method: 'POST',
