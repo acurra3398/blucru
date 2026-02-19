@@ -11,14 +11,12 @@ import Sponsors from './pages/Sponsors';
 import Media from './pages/Media';
 import Contact from './pages/Contact';
 import ScrollToTop from './components/ScrollToTop';
-import CursorTrail from './components/CursorTrail';
 import './App.css';
 
 function App() {
   return (
     <Router>
       <ScrollToTop />
-      <CursorTrail />
       <div className="App">
         <Navbar />
         <main>
