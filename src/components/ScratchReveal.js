@@ -9,7 +9,6 @@ export default function ScratchReveal({ children, width = '100%', height = '100%
   const lastPos = useRef(null);
   const [revealed, setRevealed] = useState(false);
   const [started, setStarted] = useState(false);
-  const scratchedPixels = useRef(0);
   const totalPixels = useRef(0);
 
   const getPos = (e, canvas) => {
