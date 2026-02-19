@@ -79,24 +79,24 @@ export default function JoinBluCru() {
 
     try {
       // Google Sheets Form Submission
-      // Replace with your actual Google Form action URL
-      const googleFormId = 'YOUR_GOOGLE_FORM_ID'; // You'll need to set this
+      const googleFormId = '1FAIpQLSeesQr46JmGEmqFLQP50pXXECI-Oh6W3lpb12S_MjQxwumE6A';
       const formAction = `https://docs.google.com/forms/d/e/${googleFormId}/formResponse`;
 
       const data = new FormData();
-      data.append('entry.123456789', formData.firstName); // Replace with actual field IDs
-      data.append('entry.987654321', formData.lastName);
-      data.append('entry.456789123', formData.email);
-      data.append('entry.789123456', formData.discord);
-      data.append('entry.321456789', formData.grade);
-      data.append('entry.654789123', formData.school);
-      data.append('entry.111222333', formData.areasOfInterest.join(', '));
-      data.append('entry.444555666', formData.introduction);
-      data.append('entry.777888999', formData.personalGoals);
-      data.append('entry.222333444', formData.stemPassion);
-      data.append('entry.555666777', formData.ftcExperience);
-      data.append('entry.888999111', formData.teamExperience);
-      data.append('entry.333444555', formData.additionalInfo);
+      data.append('entry.1995494324', formData.firstName);
+      data.append('entry.801323074', formData.lastName);
+      data.append('entry.1865593471', formData.email);
+      data.append('entry.490977060', formData.discord);
+      data.append('entry.2028759807', formData.grade);
+      data.append('entry.1498590108', formData.school);
+      data.append('entry.719590298', formData.areasOfInterest.join(', '));
+      data.append('entry.950127154', formData.introduction);
+      data.append('entry.94849546', formData.personalGoals);
+      data.append('entry.419260352', formData.stemPassion);
+      data.append('entry.1669949844', formData.ftcExperience);
+      data.append('entry.335470016', formData.teamExperience);
+      data.append('entry.1173221217', formData.commitment ? 'Yes I agree' : '');
+      data.append('entry.1162194342', formData.additionalInfo);
 
       await fetch(formAction, {
         method: 'POST',
