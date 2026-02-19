@@ -73,7 +73,7 @@ export default function GreenGang() {
             </div>
           </div>
           <div className="season-image">
-            <img src="wasabireal.png" alt="Wasabi Robot" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+            <img src="/wasabireal.png" alt="Wasabi Robot" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
           </div>
         </GlowTracker>
       </section>

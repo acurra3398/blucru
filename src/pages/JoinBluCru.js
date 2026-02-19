@@ -5,7 +5,7 @@ import Confetti from '../components/Confetti';
 
 // Swap these out with actual team/recruitment photos
 const heroSlides = [
-  { image: ".holymoly.png.icloud" },
+  { image: "/holymoly.png" },
   { image: "postinspire.png" },
   { image: null },
 ];

@@ -5,10 +5,10 @@ import GlowTracker from '../components/GlowTracker';
 import WorldsCountdown from '../components/WorldsCountdown';
 
 const heroSlides = [
-  {image:".chsinspire.png.icloud"},
-  { image:".wowie.png.icloud"},
+  {image:"/chsinspire.png"},
+  { image:"/wowie.png"},
   { image: "/thomasduck.png"},
-  { image: ".lockedtfin.png.icloud"},
+  { image: "/lockedtfin.png"},
   { image: "/sonnymehra.png"},
 ];
 
