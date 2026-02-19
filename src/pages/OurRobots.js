@@ -25,15 +25,9 @@ const robots = [
     name: 'WARTORTLE',
     image: 'wartortle.png',
     pokeImage: '/wartortlepoke.png',
-    description: 'Built for the CENTERSTAGE challenge, WARTOTLE featured a boxtube extension for efficient sample and specimen operations. This feature won Innovate #3 at the World Championships. Also featured a magnetic ascent mechanism',
+    description: 'Built for the INTO THE DEEP challenge, WARTORTLE featured a boxtube extension for efficient sample and specimen operations. This feature won Innovate #3 at the World Championships. Also featured a magnetic ascent mechanism',
     tags: ['Precision Placement', 'Climbing System', 'State Finalist'],
-  },
-  {
-    season: 'CENTERSTAGE',
-    name: 'Vortex',
-    description: 'Vortex was engineered for the CENTERSTAGE season with a robust cone-stacking mechanism and agile drivetrain. This robot competed as Divisional Alliance 8 Captains.',
-    tags: ['Cone Stacking', 'Agile Drivetrain', 'Alliance Captain'],
-  },
+  }
 ];
 
 export default function OurRobots() {
