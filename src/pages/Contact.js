@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import HeroSlideshow from '../components/HeroSlideshow';
 import useScrollAnimations from '../components/useScrollAnimations';
 
-// Swap these out with actual team photos
 const heroSlides = [
-  { image: null },
-  { image: null },
-  { image: null },
+  { image: '/20251206_183220.jpg' },
+  { image: '/54696214320_fe7f83ff32_o.jpg' },
+  { image: '/IMG_7707.jpg' },
 ];
 
 export default function Contact() {

@@ -1,13 +1,12 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import HeroSlideshow from '../components/HeroSlideshow';
 import GlowTracker from '../components/GlowTracker';
 import useScrollAnimations from '../components/useScrollAnimations';
 
-// Swap these out with actual media/social photos
 const heroSlides = [
-  { image: null },
-  { image: null },
-  { image: null },
+  { image: 'blucru-imts.png' },
+  { image: 'chsinspire.png' },
+  { image: 'postinspire.png' },
 ];
 
 const socialLinks = [

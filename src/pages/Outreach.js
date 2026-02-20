@@ -9,7 +9,7 @@ import useScrollAnimations from '../components/useScrollAnimations';
 const heroSlides = [
   { image: 'fllkid.png' },
   { image: 'ugandapeople.png' },
-  { image: '/images/hero-outreach-3.jpg' },
+  { image: 'robo4all.png' },
 ];
 
 /**

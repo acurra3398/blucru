@@ -7,7 +7,7 @@ import Confetti from '../components/Confetti';
 const heroSlides = [
   { image: "/holymoly.png" },
   { image: "postinspire.png" },
-  { image: null },
+  { image: 'hardatwork.jpg' },
 ];
 
 export default function JoinBluCru() {

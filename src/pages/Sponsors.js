@@ -4,11 +4,10 @@ import HeroSlideshow from '../components/HeroSlideshow';
 import GlowTracker from '../components/GlowTracker';
 import useScrollAnimations from '../components/useScrollAnimations';
 
-// Swap these out with actual sponsor event photos
 const heroSlides = [
-  { image: null },
-  { image: null },
-  { image: null },
+  { image: 'chsinspire.png' },
+  { image: 'lockedtfin.png' },
+  { image: 'sonnymehra.png' },
 ];
 
 /**
