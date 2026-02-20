@@ -41,8 +41,8 @@ const teamMembers = [
   { name: 'Kathy Z', role: 'Manufacturing', image:'kathyz.png'},
   { name: 'John H', role: 'Manufacturing', image:'johnh.png'},
   { name: 'Michael D', role: 'Autonomous', image:'michaeld.png'},
-  { name: 'Deven B', role: 'Tele-Op', image:'devenb.png'},
-  { name: 'Chase L', role: 'Software', image:'chasel.png'},
+  { name: 'Deven B', role: 'Tele-Op', image: null },
+  { name: 'Chase L', role: 'Software', image: null },
   { name: 'Thomas Y', role: 'Electrical',image:'thomasy.png'},
   { name: 'Annika B', role: 'Portfolio + Judging',image:'annikab.png'},
 ];
@@ -79,7 +79,7 @@ export default function Home() {
         ]}
         subtitle="Based at Explorer Post 1010 at the Rockville Science Center"
         buttons={
-          <div className="hero-btn-group">
+          <div className="hero-btn-group" style={{ gap: '1.25rem' }}>
             <Link to="/contact" className="btn hero-btn-gradient">Contact Us</Link>
             <Link to="/outreach" className="btn hero-btn-gradient">Our Outreach</Link>
             <Link to="/our-robots" className="btn hero-btn-gradient">Our Robots</Link>

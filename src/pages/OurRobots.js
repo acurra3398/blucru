@@ -27,6 +27,14 @@ const robots = [
     pokeImage: '/wartortlepoke.png',
     description: 'Built for the INTO THE DEEP challenge, WARTORTLE featured a boxtube extension for efficient sample and specimen operations. This feature won Innovate #3 at the World Championships. Also featured a magnetic ascent mechanism',
     tags: ['Precision Placement', 'Climbing System', 'State Finalist'],
+  },
+  {
+    season: 'CENTERSTAGE',
+    name: 'MELTAN',
+    image: 'meltan.png',
+    pokeImage: '/meltanpoke.png',
+    description: 'Built for the CENTERSTAGE challenge, MELTAN was our first competitive robot as a team. A foundational build that helped shape our team culture and engineering process.',
+    tags: ['Team Foundation', 'Learning Season', 'Chesapeake Competitor'],
   }
 ];
 
