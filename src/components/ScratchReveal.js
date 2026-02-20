@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState, useCallback } from 'react';
 
 const SCRATCH_THRESHOLD = 0.55; // fraction scratched to auto-complete
 
-export default function ScratchReveal({ children, width = '100%', height = '100%' }) {
+export default function ScratchReveal({ children, width = '100%', height = '100%', cursor = 'crosshair' }) {
   const canvasRef = useRef(null);
   const containerRef = useRef(null);
   const isDrawing = useRef(false);
@@ -193,7 +193,7 @@ export default function ScratchReveal({ children, width = '100%', height = '100%
             inset: 0,
             width: '100%',
             height: '100%',
-            cursor: 'crosshair',
+            cursor: cursor,
             borderRadius: 'inherit',
             transition: revealed ? 'opacity 0.5s ease' : 'none',
           }}

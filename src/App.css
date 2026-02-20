@@ -401,14 +401,15 @@ main {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--gold), var(--blue-accent));
-  color: white;
-  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.2);
+  background: var(--gold);
+  color: #0a0e1a;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.25);
 }
 
 .btn-primary:hover {
+  background: #d97706;
   transform: translateY(-2px);
-  box-shadow: 0 6px 25px rgba(245, 158, 11, 0.35);
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
 }
 
 .btn-primary-green {
@@ -440,28 +441,20 @@ main {
 .initiatives-section::before {
   content: '';
   display: block;
-  height: 2px;
+  height: 1px;
   margin-bottom: 1rem;
-  background: linear-gradient(90deg, transparent, var(--gold), var(--blue-accent), var(--blue-glow), transparent);
-  background-size: 200% 100%;
-  animation: gradientSlide 4s linear infinite;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
 }
 
-/* Green Gang page — override divider to green/yellow gradient */
+/* Green Gang page — override divider to green gradient */
 .green-gang-page .section-dark::before,
 .green-gang-page .achievements-section::before {
-  background: linear-gradient(90deg, transparent, #86efac, #22c55e, #f59e0b, #22c55e, #86efac, transparent);
-  background-size: 200% 100%;
+  background: linear-gradient(90deg, transparent, var(--green-primary), transparent);
 }
 
 /* Green-yellow section title underline on Green Gang page only */
 .green-gang-page .section-header .section-title::after {
   background: linear-gradient(90deg, #86efac, #22c55e, #f59e0b);
-}
-
-@keyframes gradientSlide {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
 }
 
 /* ===================== SECTIONS ===================== */
@@ -492,30 +485,14 @@ main {
   display: inline-block;
   font-size: 0.85rem;
   font-weight: 700;
-  background: linear-gradient(90deg, var(--gold), var(--blue-accent), var(--blue-glow), var(--gold));
-  background-size: 300% 100%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--gold);
   letter-spacing: 3px;
   text-transform: uppercase;
   margin-bottom: 0.75rem;
-  animation: shimmerText 3s ease-in-out infinite;
-}
-
-@keyframes shimmerText {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
 }
 
 .section-label.green {
-  background: linear-gradient(90deg, #86efac, #22c55e, #15803d, #22c55e, #86efac);
-  background-size: 300% 100%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: shimmerText 3s ease-in-out infinite;
+  color: var(--green-primary);
 }
 
 .section-title {
@@ -699,30 +676,27 @@ main {
 }
 
 .achievement-card {
-  background: linear-gradient(135deg, var(--blue-medium), rgba(30, 58, 95, 0.3));
-  border: 1px solid rgba(59, 130, 246, 0.1);
-  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: none;
+  border-left: 3px solid var(--gold);
+  border-radius: 0 12px 12px 0;
   padding: 1.5rem;
   display: flex;
   align-items: flex-start;
   gap: 1rem;
-  transition: all 0.3s ease;
+  transition: background 0.2s ease;
 }
 
 .achievement-card.green-theme {
-  background: linear-gradient(135deg, rgba(134, 239, 172, 0.06) 0%, rgba(34, 197, 94, 0.08) 50%, rgba(20, 83, 45, 0.3) 100%);
-  border: 1px solid rgba(134, 239, 172, 0.15);
+  border-left-color: var(--green-primary);
 }
 
 .achievement-card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(59, 130, 246, 0.4);
-  box-shadow: 0 8px 30px rgba(59, 130, 246, 0.12), 0 0 20px rgba(245, 158, 11, 0.08);
+  background: rgba(245, 158, 11, 0.06);
 }
 
 .achievement-card.green-theme:hover {
-  border-color: rgba(134, 239, 172, 0.5);
-  box-shadow: 0 8px 30px rgba(134, 239, 172, 0.2);
+  background: rgba(34, 197, 94, 0.06);
 }
 
 .achievement-icon {
@@ -1465,46 +1439,9 @@ main {
 }
 
 .season-section::after,
-.team-section::after {
-  content: '';
-  position: absolute;
-  width: 400px;
-  height: 400px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.06) 0%, transparent 70%);
-  pointer-events: none;
-  animation: floatOrb 12s ease-in-out infinite;
-}
-
-.season-section::after {
-  top: -100px;
-  right: -150px;
-}
-
-.team-section::after {
-  bottom: -150px;
-  left: -100px;
-  animation-delay: -6s;
-}
-
+.team-section::after,
 .achievements-section::after {
-  content: '';
-  position: absolute;
-  width: 500px;
-  height: 500px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(245, 158, 11, 0.04) 0%, transparent 70%);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  animation: floatOrb 15s ease-in-out infinite reverse;
-}
-
-@keyframes floatOrb {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(30px, -20px) scale(1.1); }
-  66% { transform: translate(-20px, 15px) scale(0.95); }
+  display: none;
 }
 
 /* ===================== ANIMATED NAV LINK UNDERLINE ===================== */
@@ -1790,4 +1727,81 @@ main > div {
 .instagram-cta a:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 30px rgba(131,58,180,0.5);
+}
+
+/* ===================== LIGHTBOX ===================== */
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(10, 14, 26, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-img {
+  max-width: 90vw;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.lightbox-close {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.lightbox-prev,
+.lightbox-next {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: #fff;
+  font-size: 2.5rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.lightbox-prev { left: 1.5rem; }
+.lightbox-next { right: 1.5rem; }
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.lightbox-counter {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
 }
