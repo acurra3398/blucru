@@ -18,16 +18,16 @@ const heroSlides = [
  * Example: { id: 1, name: 'GenScript', logo: 'genscript.png' }
  */
 const sponsors = [
-  { id: 1, name: 'GenScript', logo: 'genscript.png' },
-  { id: 2, name: 'Gene Universal', logo: 'geneuniversal.png' },
-  { id: 3, name: 'Gene Haas Foundation', logo: 'haas.png' },
-  { id: 4, name: 'nTop', logo: 'ntop.png' },
-  { id: 5, name: 'Bambu Lab', logo: 'bambu.png' },
-  { id: 6, name: 'Montgomery Blair Magnet Foundation', logo: 'magnet.jpg' },
-  { id: 7, name: 'Maryland Space Business Rountable', logo: 'msbr.png' },
-  { id: 8, name: 'Simscale', logo: 'simscale.png' },
-  { id: 9, name: 'Rockville Science Center', logo: 'rsc.png' },
-  { id: 10, name: 'Explorer Post 1010', logo: 'post1010.png' },
+  { id: 1, name: 'GenScript', logo: 'genscript.png', description: 'A global biotech leader providing gene synthesis, molecular biology reagents, and biologics manufacturing services.' },
+  { id: 2, name: 'Gene Universal', logo: 'geneuniversal.png', description: 'A life sciences company specializing in gene synthesis and molecular biology tools for cutting-edge research.' },
+  { id: 3, name: 'Gene Haas Foundation', logo: 'haas.png', description: 'Supporting machining and manufacturing education through scholarships for the next generation of skilled engineers.' },
+  { id: 4, name: 'nTop', logo: 'ntop.png', description: 'Implicit modeling software enabling engineers to design next-generation products with unprecedented computational power.' },
+  { id: 5, name: 'Bambu Lab', logo: 'bambu.png', description: 'Makers of high-speed precision 3D printers that power our rapid prototyping and parts manufacturing pipeline.' },
+  { id: 6, name: 'Montgomery Blair Magnet Foundation', logo: 'magnet.jpg', description: 'Supporting the Magnet Program at Montgomery Blair High School, fostering excellence in math, science, and CS.' },
+  { id: 7, name: 'Maryland Space Business Roundtable', logo: 'msbr.png', description: 'A professional network advancing the space industry in Maryland through advocacy, collaboration, and community.' },
+  { id: 8, name: 'Simscale', logo: 'simscale.png', description: 'Cloud-based CFD and FEA simulation platform that lets engineers run complex analyses directly from a web browser.' },
+  { id: 9, name: 'Rockville Science Center', logo: 'rsc.png', description: 'Our home base — a community science center dedicated to hands-on STEM learning for all ages in the DC area.' },
+  { id: 10, name: 'Explorer Post 1010', logo: 'post1010.png', description: 'The BSA Explorer Post that hosts Blu Cru, providing youth with real-world STEM and robotics mentorship.' },
 ];
 
 export default function Sponsors() {
@@ -48,10 +48,15 @@ export default function Sponsors() {
         <div className="sponsors-grid">
           {sponsors.map((sponsor) => (
             <GlowTracker key={sponsor.id} className="sponsor-card">
-              <img
-                src={`/${sponsor.logo}`}
-                alt={`${sponsor.name} Logo`}
-              />
+              <div className="sponsor-flip-inner">
+                <div className="sponsor-flip-front">
+                  <img src={`/${sponsor.logo}`} alt={`${sponsor.name} Logo`} />
+                </div>
+                <div className="sponsor-flip-back">
+                  <h4 className="sponsor-flip-name">{sponsor.name}</h4>
+                  <p className="sponsor-flip-desc">{sponsor.description}</p>
+                </div>
+              </div>
             </GlowTracker>
           ))}
         </div>
