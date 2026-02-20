@@ -5,9 +5,9 @@ import GlowTracker from '../components/GlowTracker';
 import useScrollAnimations from '../components/useScrollAnimations';
 
 const heroSlides = [
-  { image: 'chsinspire.png' },
-  { image: 'lockedtfin.png' },
-  { image: 'sonnymehra.png' },
+  { image: null },
+  { image: null },
+  { image: null },
 ];
 
 /**
