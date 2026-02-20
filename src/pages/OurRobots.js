@@ -29,14 +29,13 @@ const robots = [
     tags: ['Precision Placement', 'Climbing System', 'State Finalist'],
   },
   {
-    season: 'CENTERSTAGE 2023-24',
-    name: 'Center Stage Champion',
-    image: 'CenterstageBluCruRobot.jpg',
-    pokeImage: null,
-    cursor: 'url("/paintbrush.svg") 2 30, crosshair',
-    description: 'Our CENTERSTAGE robot featured creative solutions for pixel placement and backdrop scoring. This design emphasized consistency and reliability, setting the foundation for our future successes.',
-    tags: ['Dual Pixel Intake', 'Backdrop Precision', 'Autonomous Scoring'],
-  },
+    season: 'CENTERSTAGE',
+    name: 'MELTAN',
+    image: 'meltan.png',
+    pokeImage: '/meltanpoke.png',
+    description: 'Built for the CENTERSTAGE challenge, MELTAN was our first competitive robot as a team. A foundational build that helped shape our team culture and engineering process.',
+    tags: ['Team Foundation', 'Learning Season', 'Chesapeake Competitor'],
+  }
 ];
 
 export default function OurRobots() {

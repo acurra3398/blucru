@@ -123,7 +123,7 @@ export default function JoinBluCru() {
             { text: 'JOIN ', highlight: false },
             { text: 'OUR CRU', highlight: true },
           ]}
-          subtitle="Interested in joining our team for the 2026-2027 season? Fill out the application below and we'll be in touch!"
+          subtitle="Interested in joining the Blu Cru and Green Gang family for the 2026-2027 season? Fill out the application below!"
         />
         <section className="join-section" style={{ textAlign: 'center', paddingTop: '4rem' }}>
           <div className="achievement-icon" style={{ fontSize: '3rem', margin: '0 auto 1.5rem', width: 80, height: 80 }}>🎉</div>
@@ -140,7 +140,7 @@ export default function JoinBluCru() {
     <div>
       {!bannerDismissed && (
         <div className={`announcement-banner ${bannerVisible ? 'announcement-banner--visible' : ''}`}>
-          <span>📢 Blu Cru and Green Gang are now accepting applications for the 2026 - 27 season</span>
+          <span>📢 Blu Cru and Green Gang are now accepting applications for the 2026 - 27 season. Applications close June 20th 2027</span>
           <button
             className="announcement-banner__close"
             onClick={() => setBannerDismissed(true)}

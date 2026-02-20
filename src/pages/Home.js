@@ -79,7 +79,7 @@ export default function Home() {
         ]}
         subtitle="Based at Explorer Post 1010 at the Rockville Science Center"
         buttons={
-          <div className="hero-btn-group">
+          <div className="hero-btn-group" style={{ gap: '1.25rem' }}>
             <Link to="/contact" className="btn hero-btn-gradient">Contact Us</Link>
             <Link to="/outreach" className="btn hero-btn-gradient">Our Outreach</Link>
             <Link to="/our-robots" className="btn hero-btn-gradient">Our Robots</Link>
