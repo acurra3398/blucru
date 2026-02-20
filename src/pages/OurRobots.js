@@ -27,7 +27,15 @@ const robots = [
     pokeImage: '/wartortlepoke.png',
     description: 'Built for the INTO THE DEEP challenge, WARTORTLE featured a boxtube extension for efficient sample and specimen operations. This feature won Innovate #3 at the World Championships. Also featured a magnetic ascent mechanism',
     tags: ['Precision Placement', 'Climbing System', 'State Finalist'],
-  }
+  },
+  {
+    season: 'CENTERSTAGE 2023-24',
+    name: 'Center Stage Champion',
+    image: 'CenterstageBluCruRobot.jpg',
+    pokeImage: null,
+    description: 'Our CENTERSTAGE robot featured creative solutions for pixel placement and backdrop scoring. This design emphasized consistency and reliability, setting the foundation for our future successes.',
+    tags: ['Dual Pixel Intake', 'Backdrop Precision', 'Autonomous Scoring'],
+  },
 ];
 
 export default function OurRobots() {

@@ -3,6 +3,12 @@ import HeroSlideshow from '../components/HeroSlideshow';
 import GlowTracker from '../components/GlowTracker';
 import useScrollAnimations from '../components/useScrollAnimations';
 
+const photoGallery = [
+  { image: '54696214320_fe7f83ff32_o.jpg', alt: 'Blu Cru photo' },
+  { image: '20251206_183220.jpg', alt: 'Blu Cru photo' },
+  { image: 'IMG_7707.jpg', alt: 'Blu Cru photo' },
+];
+
 // Swap these out with actual media/social photos
 const heroSlides = [
   { image: null },
@@ -158,6 +164,23 @@ export default function Media() {
                 </GlowTracker>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* Photo Gallery */}
+      <section className="media-section">
+        <div className="gallery-section">
+          <div className="section-header">
+            <span className="section-label">PHOTO GALLERY</span>
+            <h2 className="section-title">Team Photos</h2>
+          </div>
+          <div className="gallery-grid">
+            {photoGallery.map((photo, i) => (
+              <GlowTracker key={i} className="gallery-item">
+                <img src={`/${photo.image}`} alt={photo.alt} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              </GlowTracker>
+            ))}
           </div>
         </div>
       </section>
