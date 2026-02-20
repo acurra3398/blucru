@@ -803,6 +803,16 @@ main {
   background: var(--green-medium);
 }
 
+.team-member-photo .coming-soon-avatar {
+  background: linear-gradient(135deg, var(--blue-medium), var(--blue-light));
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--blue-glow);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
 .team-member-name {
   font-weight: 600;
   font-size: 0.95rem;

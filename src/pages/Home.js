@@ -41,8 +41,8 @@ const teamMembers = [
   { name: 'Kathy Z', role: 'Manufacturing', image:'kathyz.png'},
   { name: 'John H', role: 'Manufacturing', image:'johnh.png'},
   { name: 'Michael D', role: 'Autonomous', image:'michaeld.png'},
-  { name: 'Deven B', role: 'Tele-Op', image:'devenb.png'},
-  { name: 'Chase L', role: 'Software', image:'chasel.png'},
+  { name: 'Deven B', role: 'Tele-Op', comingSoon: true },
+  { name: 'Chase L', role: 'Software', comingSoon: true },
   { name: 'Thomas Y', role: 'Electrical',image:'thomasy.png'},
   { name: 'Annika B', role: 'Portfolio + Judging',image:'annikab.png'},
 ];
@@ -160,11 +160,15 @@ export default function Home() {
             <div key={i} className="team-member">
              <div className="team-member-photo">
   {/* If an image exists in the data, show it; otherwise, show the letter */}
-  {member.image ? (
-    <img 
-      src={member.image} 
-      alt={member.name} 
-      style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} 
+  {member.comingSoon ? (
+    <div className="placeholder-avatar coming-soon-avatar">
+      <span>Coming Soon!</span>
+    </div>
+  ) : member.image ? (
+    <img
+      src={member.image}
+      alt={member.name}
+      style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }}
     />
   ) : (
     <div className="placeholder-avatar">
